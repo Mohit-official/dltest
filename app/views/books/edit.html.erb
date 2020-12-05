@@ -1,0 +1,28 @@
+<h1 class="title">  New Book</h1>
+
+<div>
+  <%= form_for @book do |f| %>
+    <div class="field">
+    </div>
+    <div class="field">
+      <div>
+        <%= f.label :Title %>
+        <%= f.text_field :title %>
+      </div>
+    </div>
+    <div class="field">
+      <div>  
+       <%= f.label :Author %>
+        <%= f.collection_select :author_ids,Author.all, :id, :first_name, {},{multiple: true} %>
+      </div>
+    </div>
+    <div class="field">  
+      <div>  
+       
+      </div>
+    </div>
+
+    <%= f.submit "Update Book Details" %>
+  <% end %>  
+</div>
+<%= link_to 'Back', books_path %>

@@ -1,0 +1,35 @@
+<h1 class="title">  Edit Author </h1>
+
+<div>
+  <%= form_for @author do |f| %>
+    <div class="field">
+    </div>
+    <div class="field">
+      <div>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+    </div>
+    <div class="field">
+      <div>  
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
+    <div class="field">  
+      <div>  
+        <%= f.label :dob%>
+        <%= f.text_field :dob %>
+      </div>
+    </div>
+    <div class="field">
+      <div>  
+       <%= f.label :Books %>
+        <%= f.collection_select :book_ids,Book.all, :id, :title, {},{multiple: true} %>
+      </div>
+    </div>
+
+    <%= f.submit "Update Author Details" %>
+  <% end %>  
+</div>
+<%= link_to 'Back', authors_path %>

@@ -1,0 +1,31 @@
+<h1>AUTHORS</h1>
+
+<table>
+  <thead>
+    <tr>
+      
+      <th>Author First Name</th>
+      <th>Author Last Name</th>
+      <th>D.O.B</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.first_name %></td>
+        <td><%= author.last_name %></td>
+        <td><%= author.dob %></td>
+        <td><%= link_to 'Show', author %></td>
+        <td><%= link_to 'Edit', edit_author_path(author) %></td>
+        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } ,
+        :remote => true, :class => "destroy_coin"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Author', new_author_path %>

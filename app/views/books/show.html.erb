@@ -1,0 +1,18 @@
+<p>
+  <strong>Title</strong>
+  <%= @book.title %>
+</p>
+ 
+<p>
+  <strong>Authors</strong>
+  <% if @book.authors.present? %>
+    <% authors = @book.authors %>
+    <% authors.each do|author|%>
+      <%= author.first_name %>
+      <%= author.last_name %>
+    <% end %>
+  <% else %>
+    <P>Authors not available.</P>  
+  <% end %>
+</p>
+<%= link_to 'Back', books_path %>
